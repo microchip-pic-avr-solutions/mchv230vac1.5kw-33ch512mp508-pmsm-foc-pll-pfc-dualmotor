@@ -1,0 +1,12 @@
+[submodule "project/secondary/library/motor"]
+	path = project/secondary/library/motor
+	url = https://github.com/microchip-pic-avr-solutions/library-motor
+	branch = master
+[submodule "project/secondary/library/x2cscope"]
+	path = project/secondary/library/x2cscope
+	url = https://github.com/microchip-pic-avr-solutions/library-x2cscope
+	branch = master
+[submodule "project/main/library/x2cscope"]
+	path = project/main/library/x2cscope
+	url = https://github.com/microchip-pic-avr-solutions/library-x2cscope
+	branch = master
