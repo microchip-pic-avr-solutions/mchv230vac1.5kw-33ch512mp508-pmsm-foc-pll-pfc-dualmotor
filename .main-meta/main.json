@@ -7,7 +7,7 @@
       "version":"1.0.0",
       "displayName":"Sensorless FOC of PMSM using PLL estimator integrated with Power Factor Correction: MCHV-230VAC-1.5kW and dsPIC33CH512MP508 Dual MC DIM",
       "projectName":"mchv230vac1.5kw-33ch512mp508-pmsm-foc-pll-pfc-dualmotor",
-      "shortDescription": "Integrated Power Factor Correction and sensorless FOC of PMSM using PLL estimator in a dual motor control configuration. Supports extended speed operation with field weakening algorithm."
+      "shortDescription": "Integrated Power Factor Correction and sensorless FOC of PMSM using PLL estimator in a dual motor control configuration. Supports extended speed operation with field weakening algorithm.",
       "ide":{
          "name":"MPLABX",
          "semverRange":">=6.25"
