@@ -2,10 +2,10 @@
 ## Sensorless FOC of PMSM using PLL estimator integrated with Power Factor Correction: MCHV-230VAC-1.5kW Development Board and dsPIC33CH512MP508 Dual Motor Control DIM
 
 ## 1. INTRODUCTION
-This document describes the setup requirements to drive a PMSM Motor with Power Factor Correction (PFC) on the hardware platform [EV78U65A](https://www.microchip.com/en-us/development-tool/ev78u65a) "MCHV-230VAC-1.5kW Development Board"  and
-EV62S33A - dsPIC33CH512MP508 Dual Motor Control Dual In-line Module(DIM).
+This document describes the setup requirements to drive a Permanent Magnet Synchronous Motor on the hardware platform [EV78U65A](https://www.microchip.com/en-us/development-tool/ev78u65a) "MCHV-230VAC-1.5kW Development Board"  and
+EV62S33A "dsPIC33CH512MP508 Dual Motor Control Dual In-line Module(DIM)".
 
-The firmware includes Sensorless Field Oriented Control (FOC) with PLL Estimator, integrated with Power Factor Correction. It also includes field weakening algorithm to support extended speed operation. For more details, refer to the Microchip application note [AN1208](https://www.microchip.com/en-us/application-notes/an1208) “Integrated Power Factor Correction (PFC) and Sensorless Field Oriented Control (FOC) System”.
+The firmware includes Sensorless Field Oriented Control (FOC) with PLL Estimator, integrated with Power Factor Correction. It also includes field weakening algorithm to support extended speed operation. 
 </br>
 
 ## 2. SUGGESTED DEMONSTRATION REQUIREMENTS
@@ -33,7 +33,7 @@ To clone or download this application firmware on GitHub,
 - AC Source for powering the Development Board: 150-230V<sub>ac rms</sub> , 50Hz
 
 > **Note:** </br>
->  Contact Microchip team for dsPIC33CH512MP508 Dual Motor Control Dual In-line Module (EV62S33A).
+>  Contact Microchip for dsPIC33CH512MP508 Dual Motor Control Dual In-line Module (EV62S33A).
 >  Items [EV78U65A](https://www.microchip.com/en-us/development-tool/ev78u65a), [](https://www.microchip.com/en-us/development-tool/) and [AC300025](https://www.microchip.com/en-us/development-tool/AC300025) are available to purchase directly from [microchip DIRECT](https://www.microchipdirect.com/) 
 </br>
 
@@ -64,7 +64,7 @@ Refer ["Motor Control High Voltage 230VAC-1.5kW Development Board User's Guide"]
      <p align="left" >
       <img  src="images/motorconnection.png" width="500"/></p>
 
-6. Power the PFC board using a controlled AC source by applying a voltage within in the range 150-230V<sub>ac rms</sub> and a frequency of 50Hz through IEC connector **connector J1** provided on the PFC board. If the supply frequency is 60Hz, refer to point No: 3 in the section [Basic Demonstration](#52-basic-demonstration) to change the input frequency in firmware parameters . 
+6. Power the PFC board using a controlled AC source by applying a voltage within in the range 150-230V<sub>ac rms</sub> and a frequency of 50Hz through IEC connector **connector J1** provided on the PFC board. If the supply frequency is 60Hz, refer to point No: 5 in the section [Basic Demonstration](#52-basic-demonstration) to change the input frequency in firmware parameters . 
 
       <p align="left">
       <img  src="images/mchv_input.png" width="500"/></p>
@@ -106,7 +106,7 @@ This firmware leverages the dual-core architecture of the dsPIC33CH512MP508 Digi
 - The Main Core executes a Power Factor Correction (PFC) control algorithm for a single-stage boost converter.
 - The Secondary Core is configured to control two independent three-phase inverters, each driving a separate motor using the Field-Oriented Control (FOC) algorithm.
 > **Note:**</br>
-> The configuration for the **second motor** is provided via the XPRO connector **J4** ; however, the corresponding inverter board is **not included, enabled**, or tested as part of this demonstration.
+> The second three-phase motor control inverter board can be inserted via the XPRO connector J4. Peripheral configuration and firmware for running the second motor are integrated. However, the second motor is not tested or demonstrated and is provided only for reference.
 
 Refer to the following PWM Peripheral Example: [dsPIC33CH PWM Peripheral Example for Dual Motor Control with PFC using Sync PCI Feature](https://github.com/microchip-pic-avr-examples/dspic33ch-curiosityboard-pwmexample-dual-motor-control-pfc/tree/1.0.0) for more details on the PWM sychronisation and switching scheme for Dual Motor Control with Power Factor Correction.
 
@@ -133,7 +133,7 @@ The firmware consists of two MPLAB X projects, **main.X** (Main Project) and **m
 <p style='text-align: justify;'>Once Main Core programs and enables the Secondary Core, it can autonomously run the Motor Control Demo application residing in its PRAM. The Motor Control Demo application uses a push button to start or stop the motor and a potentiometer to vary the speed of the motor.</p>
 
 
-The Motor Control Demo application uses a push button to start or stop the motor and a potentiometer to vary the speed of the motor. This Motor Control Demo Application configures and uses peripherals like PWM, ADC, UART, etc. For more details, refer to Microchip Application note **[AN1208](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ApplicationNotes/ApplicationNotes/01208A.pdf), “Integrated Power Factor Correction (PFC) and Sensorless Field Oriented Control (FOC) System”** available on the [Microchip website](https://www.microchip.com/en-us/application-notes).
+The Motor Control Demo application uses a push button to start or stop the motor and a potentiometer to vary the speed of the motor. This Motor Control Demo Application configures and uses peripherals like PWM, ADC, UART, etc. 
 
 > **Note:**</br>
 > The project may not build correctly in Windows OS if the Maximum path length of any source file in the project is more than 260 characters. In case the absolute path exceeds or nears the maximum length, do any (or both) of the following:
@@ -321,13 +321,12 @@ To view data plots continuously, uncheck **Single-shot.** When **Single-shot** i
  
  ## 6. REFERENCES:
 For additional information, refer following documents or links.
-1. AN1208 Application Note ["Integrated Power Factor Correction (PFC) and Sensorless Field Oriented Control (FOC) System"](https://www.microchip.com/en-us/application-notes/an1208)
-2. AN1292 Application Note “[Sensorless Field Oriented Control (FOC) for a Permanent Magnet Synchronous Motor (PMSM) Using a PLL Estimator and Field Weakening (FW)](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ApplicationNotes/ApplicationNotes/01292A.pdf)”
-3. Motor Control High Voltage 230VAC-1.5kW Development Board User’s Guide [(DS70005576)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-High-Voltage-230VAC-1.5kW-Dev-Board-Users-Guide-DS70005576.pdf)
-4. dsPIC33CH512MP508 Dual Motor Control Dual In-Line Module (DIM) Information Sheet 
-5. dsPIC33CH512MP508 Family datasheet [(DS70005399D)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/DataSheets/dsPIC33CH512MP508-Family-Data-Sheet-DS70005399D.pdf)
-6. MPLAB® X IDE User’s Guide [(DS50002027)](https://ww1.microchip.com/downloads/en/DeviceDoc/50002027E.pdf) or [MPLAB® X IDE help](https://microchipdeveloper.com/xwiki/bin/view/software-tools/x/)
-7. [MPLAB® X IDE installation](http://microchipdeveloper.com/mplabx:installation)
-8. [MPLAB® XC-DSC Compiler installation](https://developerhelp.microchip.com/xwiki/bin/view/software-tools/xc-dsc/install/)
-9. [Installation and setup of X2Cscope plugin for MPLAB X](https://x2cscope.github.io/docs/MPLABX_Plugin.html)
-10. [Microchip Packs Repository](https://packs.download.microchip.com/)
+1. AN1292 Application Note “[Sensorless Field Oriented Control (FOC) for a Permanent Magnet Synchronous Motor (PMSM) Using a PLL Estimator and Field Weakening (FW)](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ApplicationNotes/ApplicationNotes/01292A.pdf)”
+2. Motor Control High Voltage 230VAC-1.5kW Development Board User’s Guide [(DS70005576)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-High-Voltage-230VAC-1.5kW-Dev-Board-Users-Guide-DS70005576.pdf)
+3. dsPIC33CH512MP508 Dual Motor Control Dual In-Line Module (DIM) Information Sheet 
+4. dsPIC33CH512MP508 Family datasheet [(DS70005399D)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/DataSheets/dsPIC33CH512MP508-Family-Data-Sheet-DS70005399D.pdf)
+5. MPLAB® X IDE User’s Guide [(DS50002027)](https://ww1.microchip.com/downloads/en/DeviceDoc/50002027E.pdf) or [MPLAB® X IDE help](https://microchipdeveloper.com/xwiki/bin/view/software-tools/x/)
+6. [MPLAB® X IDE installation](http://microchipdeveloper.com/mplabx:installation)
+7. [MPLAB® XC-DSC Compiler installation](https://developerhelp.microchip.com/xwiki/bin/view/software-tools/xc-dsc/install/)
+8. [Installation and setup of X2Cscope plugin for MPLAB X](https://x2cscope.github.io/docs/MPLABX_Plugin.html)
+9. [Microchip Packs Repository](https://packs.download.microchip.com/)
