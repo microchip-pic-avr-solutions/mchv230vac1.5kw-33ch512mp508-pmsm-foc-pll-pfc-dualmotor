@@ -1,0 +1,52 @@
+{
+   "metaDataVersion":"1.0.0",
+   "category":"com.microchip.ide.project",
+   "content":{
+      "metaDataVersion":"1.3.0",
+      "name":"com.microchip.mplabx.project.mchv230vac1.5kw-33ch512mp508-pmsm-foc-pll-pfc-dualmotor",
+      "version":"1.0.0",
+      "displayName":"Sensorless FOC of PMSM using PLL estimator integrated with Power Factor Correction: MCHV-230VAC-1.5kW and dsPIC33CH512MP508 Dual MC DIM",
+      "projectName":"mchv230vac1.5kw-33ch512mp508-pmsm-foc-pll-pfc-dualmotor",
+      "shortDescription": "Integrated Power Factor Correction and sensorless FOC of PMSM using PLL estimator in a dual motor control configuration. Supports extended speed operation with field weakening algorithm.",
+      "ide":{
+         "name":"MPLABX",
+         "semverRange":">=6.25"
+      },
+      "compiler":{
+         "name":"XC-DSC",
+         "semverRange":">=3.21"
+      },
+      "dfp":{
+         "name":"dsPIC33CH-MP_DFP",
+         "semverRange":">=1.15.378"
+      },
+	  "configurator": {
+         "name": "MCC",
+         "semverRange": ">=4.0.1"
+      },
+      "device":{
+         "metaDataVersion":"1.0.0",
+         "category":"com.microchip.portal.contentRef",
+         "content":{
+            "metaDataVersion":"1.0.0",
+            "category":"com.microchip.device",
+            "name":"dsPIC33CH512MP508",
+            "versionRange":"*"
+         }
+      },
+      "keywords":[
+   	 "Dual Core",
+         "ADC",
+         "PWM",
+         "OPAMP",
+         "Motor Control",
+         "PMSM",
+         "Sensorless Control",
+         "PLL Estimator",
+         "FOC",
+         "PFC",
+	 "Field Weakening",
+         "dsPIC"
+      ]
+   }
+}
